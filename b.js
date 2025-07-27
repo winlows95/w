@@ -1,45 +1,57 @@
 if (window.location.href !== "https://memories.undertale.com/?Hackertesting900") {
   console.log("%cBALL", "font-size: 40px; font-weight: bold; color: red;");
 
-  let ball;
+  const balls = [];
+  const velocities = [];
+  const ballSize = 50;
+  const numBalls = 5;
 
   function makeball() {
-    ball = document.createElement('div');
+    let ball = document.createElement('div');
     ball.style.position = 'fixed';
-    ball.style.width = '50px';
-    ball.style.height = '50px';
+    ball.style.width = ballSize + 'px';
+    ball.style.height = ballSize + 'px';
     ball.style.background = 'cyan';
     ball.style.borderRadius = '50%';
-    ball.style.left = '0px';
-    ball.style.top = '0px';
+    ball.style.left = Math.random() * (window.innerWidth - ballSize) + 'px';
+    ball.style.top = Math.random() * (window.innerHeight - ballSize) + 'px';
     document.body.appendChild(ball);
+    balls.push(ball);
+
+    let vx = (Math.random() * 10 - 5) || 3;
+    let vy = (Math.random() * 10 - 5) || 3;
+    velocities.push({vx, vy});
   }
-  
-  makeball();
-  makeball();
-  makeball();
-  makeball();
-  makeball();
-  
-  let vx = 5, vy = 3;
+
+  for (let i = 0; i < numBalls; i++) {
+    makeball();
+  }
 
   function animate() {
-    let x = parseInt(ball.style.left);
-    let y = parseInt(ball.style.top);
-    let w = window.innerWidth;
-    let h = window.innerHeight;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
 
-    x += vx;
-    y += vy;
+    balls.forEach((ball, i) => {
+      let x = parseFloat(ball.style.left);
+      let y = parseFloat(ball.style.top);
+      let { vx, vy } = velocities[i];
 
-    if (x + 50 > w || x < 0) vx = -vx;
-    if (y + 50 > h || y < 0) vy = -vy;
+      x += vx;
+      y += vy;
 
-    ball.style.left = x + 'px';
-    ball.style.top = y + 'px';
+      if (x + ballSize > w || x < 0) vx = -vx;
+      if (y + ballSize > h || y < 0) vy = -vy;
+
+      ball.style.left = x + 'px';
+      ball.style.top = y + 'px';
+
+      velocities[i].vx = vx;
+      velocities[i].vy = vy;
+    });
 
     requestAnimationFrame(animate);
   }
+
   animate();
 
 } else {
