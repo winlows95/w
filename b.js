@@ -6,6 +6,7 @@ if (window.hasRun) {
   if (window.location.href !== "https://memories.undertale.com/?Hackertesting900") {
     console.log("%cball attack", "font-size: 40px; font-weight: bold; color: cyan;");
     console.log("maddy@maddy.pet");
+    document.body.classList.replace('bg-black', 'bg-white'); 
 
     const balls = [];
     const velocities = [];
@@ -60,6 +61,6 @@ if (window.hasRun) {
 
     animate();
   } else {
-    console.log("testing page");
+    console.log("Safety.");
   }
 }
