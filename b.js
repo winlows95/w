@@ -1,5 +1,5 @@
 if (window.location.href !== "https://memories.undertale.com/?Hackertesting900") {
-  console.log("%cBALL", "font-size: 40px; font-weight: bold; color: red;");
+  console.log("%cball attack", "font-size: 40px; font-weight: bold; color: cyan;");
 
   const balls = [];
   const velocities = [];
