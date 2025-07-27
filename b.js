@@ -10,6 +10,11 @@ if (window.location.href !== "https://memories.undertale.com/?Hackertesting900")
   ball.style.left = '0px';
   ball.style.top = '0px';
   document.body.appendChild(ball);
+  document.body.appendChild(ball);
+  document.body.appendChild(ball);
+  document.body.appendChild(ball);
+  document.body.appendChild(ball);
+  document.body.appendChild(ball);
 
   let vx = 5, vy = 3;
   function animate() {
