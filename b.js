@@ -12,18 +12,19 @@ if (window.hasRun) {
     const velocities = [];
     const ballSize = 50;
     const numBalls = 5;
+    const ballImgSrc = "https://winlows95.github.io/w/Sans_overworld.webp";
 
     function makeball() {
-      let ball = document.createElement('div');
-      ball.style.position = 'fixed';
-      ball.style.width = ballSize + 'px';
-      ball.style.height = ballSize + 'px';
-      ball.style.background = 'cyan';
-      ball.style.borderRadius = '50%';
-      ball.style.left = Math.random() * (window.innerWidth - ballSize) + 'px';
-      ball.style.top = Math.random() * (window.innerHeight - ballSize) + 'px';
-      document.body.appendChild(ball);
-      balls.push(ball);
+      const img = document.createElement('img');
+      img.src = ballImgSrc;
+      img.style.position = 'fixed';
+      img.style.width = ballSize + 'px';
+      img.style.height = ballSize + 'px';
+      img.style.left = Math.random() * (window.innerWidth - ballSize) + 'px';
+      img.style.top = Math.random() * (window.innerHeight - ballSize) + 'px';
+      img.style.pointerEvents = 'none';
+      document.body.appendChild(img);
+      balls.push(img);
 
       let vx = (Math.random() * 10 - 5) || 3;
       let vy = (Math.random() * 10 - 5) || 3;
@@ -60,6 +61,7 @@ if (window.hasRun) {
     }
 
     animate();
+
   } else {
     console.log("Safety.");
   }
