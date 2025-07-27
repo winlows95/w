@@ -1,22 +1,28 @@
 if (window.location.href !== "https://memories.undertale.com/?Hackertesting900") {
   console.log("%cBALL", "font-size: 40px; font-weight: bold; color: red;");
 
-  let ball = document.createElement('div');
-  ball.style.position = 'fixed';
-  ball.style.width = '50px';
-  ball.style.height = '50px';
-  ball.style.background = 'cyan';
-  ball.style.borderRadius = '50%';
-  ball.style.left = '0px';
-  ball.style.top = '0px';
-  document.body.appendChild(ball);
-  document.body.appendChild(ball);
-  document.body.appendChild(ball);
-  document.body.appendChild(ball);
-  document.body.appendChild(ball);
-  document.body.appendChild(ball);
+  let ball;
 
+  function makeball() {
+    ball = document.createElement('div');
+    ball.style.position = 'fixed';
+    ball.style.width = '50px';
+    ball.style.height = '50px';
+    ball.style.background = 'cyan';
+    ball.style.borderRadius = '50%';
+    ball.style.left = '0px';
+    ball.style.top = '0px';
+    document.body.appendChild(ball);
+  }
+  
+  makeball();
+  makeball();
+  makeball();
+  makeball();
+  makeball();
+  
   let vx = 5, vy = 3;
+
   function animate() {
     let x = parseInt(ball.style.left);
     let y = parseInt(ball.style.top);
@@ -35,6 +41,7 @@ if (window.location.href !== "https://memories.undertale.com/?Hackertesting900")
     requestAnimationFrame(animate);
   }
   animate();
+
 } else {
-  console.log("testing page")
+  console.log("testing page");
 }
